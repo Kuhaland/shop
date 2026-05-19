@@ -45,6 +45,7 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
+import api from '@/api/axios'
 
 const form = reactive({
   id: '',
@@ -53,30 +54,26 @@ const form = reactive({
 
 const errorMessage = ref('')
 
-const onLogin = () => {
+const onLogin = async () => {
 
-  errorMessage.value = ''
+  try {
 
-  if (!form.id) {
-    errorMessage.value = '아이디를 입력해주세요.'
-    return
-  }
-
-  if (!form.password) {
-    errorMessage.value = '비밀번호를 입력해주세요.'
-    return
-  }
-
-  console.log('LOGIN', form)
-
-  /*
-    axios 로그인 예시
-
-    await axios.post('/api/login', {
+    const res = await api.post('/auth/login', {
       id: form.id,
-      password: form.password
+      password: form.password,
     })
-  */
+
+    localStorage.setItem(
+        'token',
+        res.data.token
+    )
+
+    console.log(res.data)
+
+  } catch (err) {
+
+    console.error(err)
+  }
 }
 </script>
 
