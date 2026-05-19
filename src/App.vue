@@ -1,8 +1,6 @@
 <template>
   <div class="wrap">
 
-    <h1>네이버 검색 결과 조회</h1>
-
     <input
         v-model="keyword"
         placeholder="키워드 입력"
