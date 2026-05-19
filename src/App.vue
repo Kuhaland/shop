@@ -65,7 +65,9 @@ const result = ref([])
 
 const checkRank = async () => {
 
-  if (!keyword.value) {
+  console.log('CLICK')
+
+  if (!keyword.value.trim()) {
     alert('키워드 입력')
     return
   }
@@ -74,20 +76,22 @@ const checkRank = async () => {
 
   try {
 
+    console.log('API REQUEST')
+
     const res = await axios.post(
-        'https://rank-api.onrender.com/api/rank/check',
+        'https://rank-api-6rzt.onrender.com/api/rank/check',
         {
           keyword: keyword.value
         }
     )
+
+    console.log(res.data)
 
     result.value = res.data.items || []
 
   } catch (e) {
 
     console.error(e)
-
-    alert('API 오류')
 
   } finally {
 
