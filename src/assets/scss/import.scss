@@ -1,6 +1,9 @@
 @charset "utf-8";
 
-/* base */
-@import "./reset";
-@import "./fonts";
-@import './color';
+/* Base */
+@forward "./reset";
+@forward "./fonts";
+@forward './color';
+
+/* Layout */
+@forward "./content";
