@@ -1,12 +1,33 @@
 <template>
   <div class="login-page">
     <!-- Content -->
-    <div class="login-bg"></div>
+    <div class="login-bg">
+      <!-- Logo -->
+      <div class="logo"></div>
+      <!-- Text -->
+      <div class="review-text">
+        <strong class="review-text-quote">
+          “매장 운영 흐름이 훨씬 정돈됐어요.<br>
+          주문부터 재고 관리까지 한 번에 가능합니다.”
+        </strong>
+        <div class="review-text-author">
+          <span class="name">에밀리 카터</span>
+          <span class="position">F&B 운영 매니저</span>
+        </div>
+      </div>
+      <div class="overlay"></div>
+      <!-- Background -->
+      <iframe src="https://player.vimeo.com/video/1194309735?background=1&autoplay=1&loop=1&muted=1"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+      />
+    </div>
     <!-- Content -->
     <div class="login-card">
       <!-- Title -->
-      <div class="logo">ADMIN</div>
-      <div class="title">관리자 로그인</div>
+      <div class="text-main">Hello,<br>Welcome Back</div>
+      <div class="text-sub">Hello,<br>Welcome Back</div>
       <!-- Content -->
       <div class="form-group">
         <!-- Content -->
@@ -30,7 +51,6 @@
       <!-- Button -->
       <button class="login-btn" @click="onLogin">로그인</button>
       <p v-if="errorMessage" class="error-text">{{ errorMessage }}</p>
-      <div class="copyright">Power by leehx78</div>
     </div>
   </div>
 </template>
