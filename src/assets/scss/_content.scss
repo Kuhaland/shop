@@ -32,16 +32,19 @@
   .login-card{
     position: absolute; top: 50%; right: 20px; z-index: 10;
     display:flex; flex-direction: column; width: 800px; height: calc(100% - 40px);
-    padding: 48px 40px; background-color: #ffffff; border-radius: 20px;
+    padding: 48px 40px; background-color: rgba(0,0,0,0.5); border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     transform: translateY(-50%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     .logo{
       margin-bottom: 12px;
       font-size: 32px; font-weight: 800; color: #2563eb;
     }
+    [class^="text-"] { color: #ffffff;}
     .title{
       margin-bottom: 36px;
-      font-size: 38px; font-weight: 700; line-height: 1.25; color: #111827;
+      font-size: 38px; font-weight: 700; line-height: 1.25; color: #ffffff;
     }
     .form-group {
       display: flex; flex-direction: column; gap: 20px; flex: 1;
