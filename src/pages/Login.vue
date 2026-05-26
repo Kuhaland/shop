@@ -17,10 +17,12 @@
       </div>
       <div class="overlay"></div>
       <!-- Background -->
-      <iframe src="https://player.vimeo.com/video/1194309735?background=1&autoplay=1&loop=1&muted=1"
-              frameborder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-      />
+      <div class="video-wrap">
+        <iframe src="https://player.vimeo.com/video/1194309735?background=1&autoplay=1&loop=1&muted=1"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+        />
+      </div>
     </div>
     <!-- Content -->
     <div class="login-card">

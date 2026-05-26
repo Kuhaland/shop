@@ -27,7 +27,14 @@
       width: 100%; height: 100%;
       background-color: rgba(0,0,0,0.5);
     }
-    iframe { width: 100%; min-width: 100px; height: 100%;}
+    .video-wrap {
+      overflow: hidden; position: fixed; inset: 0;
+      iframe {
+        position: absolute; top: 50%; left: 50%;
+        width: 100vw; min-width: 177.77vh; height: 56.25vw; min-height: 100vh;
+        transform: translate(-50%, -50%);
+      }
+    }
   }
   .login-card{
     position: absolute; top: 50%; right: 20px; z-index: 10;
@@ -44,13 +51,13 @@
     [class^="text-"] { color: #ffffff;}
     .text-main{
       margin-bottom: 12px;
-      font-size: 38px; font-weight: 700; line-height: 1.25; color: #ffffff;
+      font-size: 42px; font-weight: 700; line-height: 1.25; color: #ffffff;
     }
     .text-sub{
       font-size: 16px; font-weight: 500; line-height: 1.25; color: #bfbfbf;
     }
     .form-group {
-      display: flex; flex-direction: column; gap: 20px; flex: 1; margin-top: 40px;
+      display: flex; flex-direction: column; gap: 40px; flex: 1; margin-top: 40px;
       .item-content {
         display: flex; flex-direction: column; gap: 8px;
         label {
@@ -58,6 +65,7 @@
         }
         input {
           width:100%; height:52px; padding:0 16px;
+          background-color: #fafafa;
           border:1px solid #d1d5db; border-radius:14px; outline:none;
           font-size:15px;
           transition:0.2s;
@@ -70,11 +78,25 @@
     }
     .login-btn{
       width:100%; height:54px; margin-top:8px;
-      background-color:#2563eb; border:none; border-radius:14px;
+      background: linear-gradient(
+                      135deg,
+                      #7b1fff,
+                      #c44dff,
+                      #3da5ff,
+                      #7b1fff
+      );
+      border:none; border-radius:14px;
       font-size:16px; font-weight:700; color:#ffffff;
-      cursor:pointer; transition:0.2s;
+      background-size: 300% 300%;
+      cursor:pointer;
       &:hover{
-        background:#1d4ed8;
+        animation: gradientMove 6s ease infinite;
+        cursor:pointer;
+      }
+      @keyframes gradientMove {
+        0% { background-position: 0 50%;}
+        50% { background-position: 100% 50%;}
+        100% { background-position: 0 50%;}
       }
     }
     .error-text{
