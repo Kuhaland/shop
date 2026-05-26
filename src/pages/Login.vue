@@ -20,14 +20,13 @@
       <iframe src="https://player.vimeo.com/video/1194309735?background=1&autoplay=1&loop=1&muted=1"
               frameborder="0"
               allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen
       />
     </div>
     <!-- Content -->
     <div class="login-card">
       <!-- Title -->
       <div class="text-main">Hello,<br>Welcome Back</div>
-      <div class="text-sub">Hello,<br>Welcome Back</div>
+      <div class="text-sub">Enter your id and password to access your account.</div>
       <!-- Content -->
       <div class="form-group">
         <!-- Content -->
