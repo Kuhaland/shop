@@ -33,21 +33,27 @@
       <div class="form-group">
         <!-- Content -->
         <div class="item-content">
-          <label>아이디</label>
-          <input v-model="form.id"
-                 type="text"
-                 placeholder="아이디를 입력해주세요"
+          <text-field v-model="form.id"
+                      type="text"
+                      label="아이디"
+                      placeholder="아이디를 입력해주세요"
           />
         </div>
         <!-- Content -->
         <div class="item-content">
-          <label>비밀번호</label>
-          <input v-model="form.password"
-                 type="password"
-                 placeholder="비밀번호를 입력해주세요"
-                 @keyup.enter="onLogin"
+          <text-field v-model="form.password"
+                      type="password"
+                      label="비밀번호"
+                      placeholder="비밀번호를 입력해주세요"
+                      @keyup.enter="onLogin"
           />
         </div>
+      </div>
+      <div>
+        <check-box v-model="data.isAgree"
+                   label="아이디 기억"
+        />
+        <div>비밀번호를 잊어버리셨어요?</div>
       </div>
       <!-- Button -->
       <button class="login-btn" @click="onLogin">로그인</button>
@@ -59,6 +65,12 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import api from '@/api/axios'
+import TextField from "@/components/unit/TextField.vue";
+import CheckBox from "@/components/unit/CheckBox.vue";
+
+const data = reactive({
+  isAgree: false,
+})
 
 const form = reactive({
   id: '',

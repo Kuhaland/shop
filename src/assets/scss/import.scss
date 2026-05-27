@@ -1,9 +1,10 @@
 @charset "utf-8";
 
 /* Base */
-@forward "./reset";
-@forward "./fonts";
-@forward './color';
+@forward "reset";
+@forward "fonts";
+@forward 'color';
 
 /* Layout */
-@forward "./content";
+@forward "login";
+@forward "global";
