@@ -1,31 +1,5 @@
 <template>
-  <div class="login-page">
-    <!-- Content -->
-    <div class="login-bg">
-      <!-- Logo -->
-      <div class="logo"></div>
-      <!-- Text -->
-      <div class="review-text">
-        <strong class="review-text-quote">
-          “매장 운영 흐름이 훨씬 정돈됐어요.<br>
-          주문부터 재고 관리까지 한 번에 가능합니다.”
-        </strong>
-        <div class="review-text-author">
-          <span class="name">에밀리 카터</span>
-          <span class="position">F&B 운영 매니저</span>
-        </div>
-      </div>
-      <div class="overlay"></div>
-      <!-- Background -->
-      <div class="video-wrap">
-        <iframe src="https://player.vimeo.com/video/1194309735?background=1&autoplay=1&loop=1&muted=1"
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-        />
-      </div>
-    </div>
-    <!-- Content -->
-    <div class="login-card">
+  <div class="login-card">
       <!-- Title -->
       <div class="text-main">Hello,<br>Welcome Back</div>
       <div class="text-sub">Enter your id and password to access your account.</div>
@@ -37,6 +11,7 @@
                       type="text"
                       label="아이디"
                       placeholder="아이디를 입력해주세요"
+                      label-type="floating"
           />
         </div>
         <!-- Content -->
@@ -45,28 +20,30 @@
                       type="password"
                       label="비밀번호"
                       placeholder="비밀번호를 입력해주세요"
+                      label-type="floating"
                       @keyup.enter="onLogin"
           />
         </div>
       </div>
-      <div>
+      <div class="login-options">
         <check-box v-model="data.isAgree"
                    label="아이디 기억"
         />
-        <div>비밀번호를 잊어버리셨어요?</div>
+        <router-link to="/forgot-password" class="forgot-link">비밀번호를 잊어버리셨어요?</router-link>
       </div>
       <!-- Button -->
       <button class="login-btn" @click="onLogin">로그인</button>
-      <p v-if="errorMessage" class="error-text">{{ errorMessage }}</p>
     </div>
-  </div>
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
 import api from '@/api/axios'
 import TextField from "@/components/unit/TextField.vue";
 import CheckBox from "@/components/unit/CheckBox.vue";
+import { useAlert } from '@/composables/useAlert'
+
+const { alert } = useAlert()
 
 const data = reactive({
   isAgree: false,
@@ -76,8 +53,6 @@ const form = reactive({
   id: '',
   password: '',
 })
-
-const errorMessage = ref('')
 
 const onLogin = async () => {
 
@@ -98,6 +73,7 @@ const onLogin = async () => {
   } catch (err) {
 
     console.error(err)
+    alert('아이디 또는 비밀번호를 확인해주세요.')
   }
 }
 </script>

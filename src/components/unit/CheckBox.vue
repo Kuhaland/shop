@@ -63,7 +63,8 @@ const onChange = (e) => {
       opacity: 0;
     }
   }
-  .check-label{ font-size: 14px; color: #111827;}
+  .check-label{ font-size: 14px; font-weight: 500; color: #ffffff;}
+  &:hover .check-icon{ border-color: #7b1fff;}
   &.checked{
     .check-icon{
       background-color: #7b1fff;

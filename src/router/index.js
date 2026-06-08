@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 import Login from '@/pages/Login.vue'
+import ForgotPassword from '@/pages/ForgotPassword.vue'
 import Dashboard from '@/pages/Dashboard.vue'
 
 const routes = [
@@ -8,7 +9,15 @@ const routes = [
     path: '/login',
     component: Login,
     meta: {
-      layout: 'empty',
+      layout: 'auth',
+    },
+  },
+
+  {
+    path: '/forgot-password',
+    component: ForgotPassword,
+    meta: {
+      layout: 'auth',
     },
   },
 

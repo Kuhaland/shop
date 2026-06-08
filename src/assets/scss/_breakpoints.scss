@@ -1,0 +1,15 @@
+@use "sass:map";
+
+// 최대 너비 기준(데스크톱 우선) 브레이크포인트
+$breakpoints: (
+        "tablet": 1024px,
+        "mobile": 768px,
+        "small": 480px,
+);
+
+// 사용 예: @include respond("mobile") { ... }
+@mixin respond($name) {
+  @media (max-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
